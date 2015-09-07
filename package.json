@@ -1,0 +1,26 @@
+{
+  "name": "microy",
+  "version": "0.0.1",
+  "description": "A promise based micro services engine.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "co": "^4.6.0",
+    "lodash": "^3.10.1",
+    "patrun": "^0.5.0",
+    "random-js": "^1.0.5"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "chai-as-promised": "^5.1.0",
+    "mocha": "^2.3.1",
+    "proxyquire": "^1.7.2",
+    "sinon": "^1.16.1",
+    "sinon-as-promised": "^4.0.0"
+  }
+}
