@@ -21,11 +21,8 @@ microy.prototype.run = function (pattern, remote) {
     var generator = this.matcher.find(message);
 
     if (generator) {
-        return co(generator);
-    }
-
-    else if (!remote && this.client) {
-        return this.client(message);
+        var rtn = co(generator, message);
+        return rtn;
     }
 };
 
@@ -39,8 +36,9 @@ microy.prototype.listen = function (transport, options) {
     new transport(this).server(options);
 };
 
-microy.prototype.client = function (transport, options) {
-    this.client = new transport(this).client(options);
+microy.prototype.client = function (pattern, transport, options) {
+    let client = new transport(this).client(options);
+    this.add(pattern, client);
 };
 
 module.exports = function () {
