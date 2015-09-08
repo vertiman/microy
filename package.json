@@ -9,8 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.5.4",
     "bluebird": "^2.9.34",
     "co": "^4.6.0",
+    "koa": "^1.0.0",
+    "koa-body": "^1.2.1",
     "lodash": "^3.10.1",
     "patrun": "^0.5.0",
     "random-js": "^1.0.5"
@@ -21,6 +24,7 @@
     "mocha": "^2.3.1",
     "proxyquire": "^1.7.2",
     "sinon": "^1.16.1",
-    "sinon-as-promised": "^4.0.0"
+    "sinon-as-promised": "^4.0.0",
+    "sinon-chai": "^2.8.0"
   }
 }
