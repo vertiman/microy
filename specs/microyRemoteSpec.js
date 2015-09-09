@@ -3,6 +3,7 @@
  */
 'use strict';
 
+Promise = require('bluebird');
 const microy = require('..');
 const httpTransport = require('../lib/httpTransport');
 const chai = require('chai');
@@ -27,10 +28,9 @@ describe('when doing a simple remote match', function () {
         microyClient.client(testPattern, httpTransport, {port: 10900});
     });
 
-    it('should access the remote server', function (done) {
+    it.only('should access the remote server', function (done) {
         microyClient.run(testPattern).then(function (result) {
             expect(result).to.be.equal('hello');
-            done();
-        });
+        }).done(done);
     })
 });

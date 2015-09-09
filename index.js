@@ -42,5 +42,6 @@ microy.prototype.client = function (pattern, transport, options) {
 };
 
 module.exports = function () {
+    Promise = require('bluebird');
     return new microy();
 };
