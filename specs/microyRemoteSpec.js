@@ -25,7 +25,7 @@ describe('when doing a simple remote match', function () {
     before(function () {
         microyServer.listen(httpTransport, {port: 10900});
         microyServer.add(testPattern, testGen);
-        microyClient.client(testPattern, httpTransport, {port: 10900});
+        microyClient.client(testPattern, './lib/httpTransport', {port: 10900});
     });
 
     it.only('should access the remote server', function (done) {

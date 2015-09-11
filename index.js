@@ -37,9 +37,29 @@ microy.prototype.listen = function (transport, options) {
 };
 
 microy.prototype.client = function (pattern, transport, options) {
-    let client = new transport(this).client(options);
+    var transportType = getTransport(transport);
+    let client = new transportType(this).client(options);
     this.add(pattern, client);
 };
+
+function getTransport(transport) {
+    var instance = loadTransportType(transport);
+    if(!instance.prototype.client || !instance.prototype.server)
+        throw new Error('transports need a client and server method');
+    return instance;
+}
+
+function loadTransportType(transport) {
+    if(_.isString(transport)) {
+        if(transport === 'http')
+            return require('./lib/httpTransport');
+        var t = require(transport);
+        if(!t)
+            throw new Error('transport ' + transport + 'not found');
+        return t;
+    }
+    return transport;
+}
 
 module.exports = function () {
     Promise = require('bluebird');
